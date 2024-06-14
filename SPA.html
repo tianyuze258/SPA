@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body,
+        .box {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box>.top {
+            width: 100%;
+            height: 100px;
+            background-color: brown;
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .box>.bottom {
+            flex: 1;
+            display: flex;
+        }
+
+        .box>.bottom>.slide {
+            width: 230px;
+            background-color: aqua;
+            box-sizing: border-box;
+            padding: 15px;
+            font-size: 25px;
+        }
+
+        .box>.bottom>.slide>a {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .box>.bottom>.content {
+            width: 100%;
+            background-color: coral;
+            box-sizing: border-box;
+            padding: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top"> 顶部通栏 </div>
+        <div class="bottom">
+            <div class="slide">
+                <a href="#/pageA">pageA</a>
+                <a href="#/pageB">pageB</a>
+                <a href="#/pageC">pageC</a>
+                <a href="#/pageD">pageD</a>
+            </div>
+            <div class="content router-view">内容区</div>
+        </div>
+    </div>
+    <script>
+        // 准备一些渲染内容, 后续会根据 Hash 值去展示
+        const templateA = `<div>templateA</div>`
+        const templateB = `<div>templateB</div>`
+        const templateC = `<div>templateC</div>`
+        const templateD = `<div>templateD</div>`
+        
+        // 获取 Dom 节点
+        const rw = document.querySelector('.router-view')
+        
+        // 监听 hash 值的变化
+        window.onhashchange = function () {
+            // 这个函数执行, 表明hash锚点发生变化, 将内容区的文本切换为对应的文本
+            console.log(window.location.hash)
+            const { hash } = window.location    // 相当于: const hash = window.loaction.hash
+            
+            // 根据当前的 Hash 值, 决定渲染哪一段内容
+            if (hash === '#/pageA') {
+                rw.innerHTML = templateA
+            } else if (hash === '#/pageB') {
+                rw.innerHTML = templateB
+            } else if (hash === '#/pageC') {
+                rw.innerHTML = templateC
+            } else if (hash === '#/pageD') {
+                rw.innerHTML = templateD
+            }
+        }
+    </script>
+</body>
+
+</html>
