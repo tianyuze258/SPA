@@ -1,6 +1,13 @@
-const temAHtml = `<div id="pageA">pageA_template</div>`;
-const routerView = document.querySelector('.router-view')
-function rander () {
+const temAHtml = `            
+            <div>
+                <div class="slidesShow">aaaaaaaaaaaaaaaaa</div>
+                <div class="upper">
+                    
+                </div>
+                <div class="lower"></div>
+            </div>`;
+const routerView = document.querySelector('.center')
+function rander() {
     routerView.innerHTML = temAHtml
 }
 export default rander
