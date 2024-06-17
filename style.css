@@ -10,12 +10,23 @@ body,
     height: 100%;
 }
 
+ul,
+li {
+    list-style: none;
+    /* 清除列表的标记样式 */
+    margin: 0;
+    /* 清除上下的外边距 */
+    padding: 0;
+    /* 清除左右的内边距 */
+}
+
 .content {
     display: flex;
     flex-direction: column;
 }
 
-.content>.top {                 /* 最上导航等 */
+.content>.top {
+    /* 最上导航等 */
     /* position: fixed; */
     display: flex;
     flex-direction: column;
@@ -26,7 +37,28 @@ body,
     background-size: cover;
     background-repeat: no-repeat;
 
-    
+    ul,
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li {
+        flex: 1;
+        padding-bottom: 12px;
+        color: white;
+    }
+
+    ul:last-child::after {
+        content: '';
+        flex: 1;
+    }
+
+    ul:first-child::before {
+        content: '';
+        flex: 1;
+    }
 }
 
 .content>.top>:first-child {
@@ -34,7 +66,8 @@ body,
     align-items: center;
     justify-content: center;
 }
-.content>.top>*{
+
+.content>.top>* {
     margin-top: 35px;
 }
 
@@ -42,63 +75,23 @@ body,
     display: flex;
     justify-content: center;
 }
-.content>.top>:first-child>*:first-child{
+
+.content>.top>:first-child>*:first-child {
     flex: 2;
 }
-.content>.top>:first-child>*:last-child{
+
+.content>.top>:first-child>*:last-child {
     flex: 1;
 }
-.content>.bottom {
-    flex: 1;
+
+.center{
     display: flex;
 }
-
-.content>.bottom>.slide {
-    width: 230px;
-    background-color: aqua;
-    box-sizing: border-box;
-    padding: 15px;
-    font-size: 25px;
-}
-
-.content>.bottom>.slide>a {
-    display: block;
-    margin: 10px 0;
-}
-
-.content>.bottom>.bottomRight {
-    width: 100%;
-    background-color: coral;
-    box-sizing: border-box;
-    padding: 15px;
-    font-size: 20px;
-}
-
-
-ul,
-li {
-    list-style: none;
-    /* 清除列表的标记样式 */
-    margin: 0;
-    /* 清除上下的外边距 */
-    padding: 0;
-    /* 清除左右的内边距 */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-li {
-    flex: 1;
-    padding-bottom: 12px;
-    color: white;
-}
-ul:last-child::after{
+.center:first-child::after{
     content: '';
-    flex: 1;
+    width: 260px;
 }
-ul:first-child::before{
+.center:first-child::before{
     content: '';
-    flex: 1;
+    width: 260px;
 }
