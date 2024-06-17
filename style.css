@@ -15,16 +15,39 @@ body,
     flex-direction: column;
 }
 
-.content>.top {
-    position: fixed;
-    width: 100%;
-    
-    background-color: brown;
+.content>.top {                 /* 最上导航等 */
+    /* position: fixed; */
     display: flex;
+    flex-direction: column;
+    width: 100%;
 
+    /* background-color: brown; */
+    background-image: url(images/topBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 
+    
 }
 
+.content>.top>:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content>.top>*{
+    margin-top: 35px;
+}
+
+.content>.top>:first-child>* {
+    display: flex;
+    justify-content: center;
+}
+.content>.top>:first-child>*:first-child{
+    flex: 2;
+}
+.content>.top>:first-child>*:last-child{
+    flex: 1;
+}
 .content>.bottom {
     flex: 1;
     display: flex;
@@ -49,4 +72,33 @@ body,
     box-sizing: border-box;
     padding: 15px;
     font-size: 20px;
+}
+
+
+ul,
+li {
+    list-style: none;
+    /* 清除列表的标记样式 */
+    margin: 0;
+    /* 清除上下的外边距 */
+    padding: 0;
+    /* 清除左右的内边距 */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    flex: 1;
+    padding-bottom: 12px;
+    color: white;
+}
+ul:last-child::after{
+    content: '';
+    flex: 1;
+}
+ul:first-child::before{
+    content: '';
+    flex: 1;
 }
